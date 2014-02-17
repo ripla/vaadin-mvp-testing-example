@@ -1,0 +1,3 @@
+#MVP testing example
+
+This sample project shows how to do unit- and integration-testing with [MVP](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter), [Vaadin](vaadin.com) and [Vaadin-CDI](http://vaadin.com/addon/vaadin-cdi). The integration test for the presenter uses [Arquillian](www.arquillian.org). This example does *not* use TestBench, Selenium or the Drone mechanism in Arquillian.
