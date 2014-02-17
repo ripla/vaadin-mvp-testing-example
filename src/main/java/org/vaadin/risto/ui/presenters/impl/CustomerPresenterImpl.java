@@ -13,6 +13,8 @@ public class CustomerPresenterImpl  implements CustomerPresenter {
     @Inject
     CustomerService service;
 
+    // Note that the view isn't injected.
+    // Instead the reference is set by the view instance
     private CustomerView customerView;
 
     @Override

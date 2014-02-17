@@ -1,4 +1,4 @@
-package org.vaadin.risto.acceptance.ui.presenter;
+package org.vaadin.risto.unit.ui.presenter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,6 +11,9 @@ import org.vaadin.risto.ui.presenters.CustomerPresenter;
 import org.vaadin.risto.ui.presenters.impl.CustomerPresenterImpl;
 import org.vaadin.risto.ui.views.CustomerView;
 
+/**
+ * This is an unit test that isolates the presenter.
+ */
 public class CustomerPresenterTest {
 
     @InjectMocks

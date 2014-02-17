@@ -1,8 +1,5 @@
 package org.vaadin.risto.integration.ui.presenter;
 
-import org.vaadin.risto.services.CustomerService;
-import org.vaadin.risto.ui.presenters.CustomerPresenter;
-import org.vaadin.risto.ui.views.CustomerView;
 import com.vaadin.cdi.internal.BeanStoreContainer;
 import com.vaadin.cdi.internal.UIBean;
 import com.vaadin.ui.UI;
@@ -21,10 +18,16 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.vaadin.risto.services.CustomerService;
+import org.vaadin.risto.ui.presenters.CustomerPresenter;
+import org.vaadin.risto.ui.views.CustomerView;
 
 import javax.enterprise.inject.spi.Bean;
 import javax.inject.Inject;
 
+/**
+ * This is an integration test that has the whole stack available. Calls are delegated to the backend by the presenter.
+ */
 @RunWith(Arquillian.class)
 @RunAsClient
 public class CustomerPresenterIntegrationTest {
@@ -50,10 +53,12 @@ public class CustomerPresenterIntegrationTest {
 
     @Deployment
     public static WebArchive createDeployment() {
-        WebArchive webArchive = ShrinkWrap.create(WebArchive.class).addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+        WebArchive webArchive = ShrinkWrap.create(WebArchive.class)
+                                          .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
 
-        webArchive = webArchive.addPackages(true, CustomerPresenter.class.getPackage()).addPackages(true, CustomerService.class.getPackage())
-                .addClass(BeanStoreContainer.class);
+        webArchive = webArchive.addPackages(true, CustomerPresenter.class.getPackage())
+                               .addPackages(true, CustomerService.class.getPackage())
+                               .addClass(BeanStoreContainer.class);
 
         return webArchive;
     }
